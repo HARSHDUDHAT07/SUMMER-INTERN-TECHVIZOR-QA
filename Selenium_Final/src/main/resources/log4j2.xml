@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout>
+				<Pattern>%d [%t] %-5level (%F: %L) - %msg%n</Pattern>
+			</PatternLayout>
+		</Console>
+		<File name="Lab_BookTest" fileName="c:\temp\Lab_BookTest.csv"
+			append="true">
+			<PatternLayout>
+				<Pattern>%d{MMM dd yyyy, HH:mm:ss}, (%F: %L), - %msg%n</Pattern>
+			</PatternLayout>
+		</File>
+		<File name="Lab_BookTest_digilab"
+			fileName="c:\temp\Lab_BookTest_digilab.csv"
+			append="true">
+			<PatternLayout>
+				<Pattern>%d{MMM dd yyyy, HH:mm:ss}, (%F: %L), - %msg%n</Pattern>
+			</PatternLayout>
+		</File>
+		<File name="SPA_ADD_BRANCH" fileName="c:\temp\SPA_ADD_BRANCH.csv"
+			append="true">
+			<PatternLayout>
+				<Pattern>%d{MMM dd yyyy, HH:mm:ss}, (%F: %L), - %msg%n</Pattern>
+			</PatternLayout>
+		</File>
+		<File name="SPA_ADD_NEW_FACILITY"
+			fileName="c:\temp\SPA_ADD_NEW_FACILITY.csv"
+			append="true">
+			<PatternLayout>
+				<Pattern>%d{MMM dd yyyy, HH:mm:ss}, (%F: %L), - %msg%n</Pattern>
+			</PatternLayout>
+		</File>
+
+
+	</Appenders>
+
+	<Loggers>
+		<Logger name="com.sdetadda" level="info" additivity="true">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<logger name="Lab_BookTest">
+			<level value="DEBUG" />
+			<appenderRef ref="Lab_BookTest" />
+		</logger>
+		<logger name="Lab_BookTest_digilab">
+			<level value="DEBUG" />
+			<appenderRef ref="Lab_BookTest_digilab" />
+		</logger>
+		<logger name="SPA_ADD_BRANCH">
+			<level value="DEBUG" />
+			<appenderRef ref="SPA_ADD_BRANCH" />
+		</logger>
+		<logger name="SPA_ADD_NEW_FACILITY">
+			<level value="DEBUG" />
+			<appenderRef ref="SPA_ADD_NEW_FACILITY" />
+		</logger>
+
+
+		<Root level="info">
+			<AppenderRef ref="File" />
+		</Root>
+	</Loggers>
+</Configuration>

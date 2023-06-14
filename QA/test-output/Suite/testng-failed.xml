@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test regi(failed)">
+    <classes>
+      <class name="TESTNG.test_registration">
+        <methods>
+          <include name="initialize_test_regi"/>
+          <include name="login_test_Regi"/>
+          <include name="finish_test_regi"/>
+        </methods>
+      </class> <!-- TESTNG.test_registration -->
+    </classes>
+  </test> <!-- Test regi(failed) -->
+</suite> <!-- Failed suite [Suite] -->

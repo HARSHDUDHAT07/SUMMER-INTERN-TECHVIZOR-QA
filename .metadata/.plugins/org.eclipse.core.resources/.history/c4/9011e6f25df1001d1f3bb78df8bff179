@@ -1,0 +1,57 @@
+package Appium;
+import java.net.URL;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+
+public class Calculator {
+
+	public static void main(String[] args) throws Exception {
+
+		DesiredCapabilities dc =new DesiredCapabilities(); 
+		dc.setCapability(MobileCapabilityType.AUTOMATION_NAME,"Appium");							    					//automation name
+		dc.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");							     						//Platform name
+		dc.setCapability(MobileCapabilityType.PLATFORM_VERSION,"11.0");								    					//platfrom os version
+		dc.setCapability(MobileCapabilityType.DEVICE_NAME,"Android Emulator");		
+		
+		dc.setCapability("appPackage","com.healthismplus.customer.dev");
+	    dc.setCapability("appActivity","com.healthismplus.customer.MainActivity");
+	    
+		//url to connect with appium server.
+		URL url = new URL ("http://localhost:4723/wd/hub");
+		
+		//creating Android Driver for interacting with Android
+		AndroidDriver driver = new AndroidDriver(url,dc);
+		Thread.sleep(5000);
+		
+		WebElement user_id = driver.findElement(By.xpath("	\r\n"+ "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText"));
+		user_id.click();
+		user_id.sendKeys("9923338577");
+		Thread.sleep(2000);
+		
+		WebElement clickcon = driver.findElement(By.xpath("	\r\n"+ "//android.widget.Button[@content-desc=\"Continue\"]"));
+		clickcon.click();
+		Thread.sleep(2000);
+		
+		WebElement OTP = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText"));
+		OTP.click();
+		OTP.sendKeys("1597");				
+		
+		WebElement login = driver.findElement(By.xpath("\r\n"+ "//android.widget.Button[@content-desc=\"Continue\"]"));
+		login.click();
+		Thread.sleep(5000);
+		
+		
+		WebElement loc = driver.findElement(By.id("com.android.permissioncontroller:id/permission_allow_foreground_only_button"));
+		loc.click();
+		Thread.sleep(2000);
+		
+		WebElement loccon = driver.findElement(By.xpath("	\r\n"
+				+ "//android.widget.Button[@content-desc=\"Confirm Location\"]"));
+		loccon.click();
+		Thread.sleep(5000);	
+	}
+}
